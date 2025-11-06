@@ -904,7 +904,7 @@ class PlayState extends MusicBeatState
 		if (dadOpponent.curCharacter == 'mariofake' && dadOpponent.animation.curAnim.name == 'transition' && dadOpponent.animation.curAnim.finished)
 		{
 			dadOpponent.stopAnim = false;
-			dadOpponent.setCharacter(dadOpponent.x, dadOpponent.y + 10, "marionear");
+			dadOpponent.setCharacter(dadOpponent.x + 30, dadOpponent.y - 38, "marionear");
 		}
 		nextShake -= elapsed;
 		if (nextShake <= 0)
@@ -2516,6 +2516,7 @@ class PlayState extends MusicBeatState
 		
 		if (isMX)
 		{
+			// trace("isMX is true, processing MX-specific step events. Current step: " + curStep);
 			//if (curBeat == 90)
 			if (curStep == 507)
 			{
@@ -2546,7 +2547,7 @@ class PlayState extends MusicBeatState
 			if (curStep == 769)
 			{
 				dadOpponent.stopAnim = false;
-				dadOpponent.setCharacter(dadOpponent.x - 126, dadOpponent.y - 88 + 2 + 12, "mx");
+				dadOpponent.setCharacter(dadOpponent.x - 126, dadOpponent.y - 88 + 2 + 74, "mx");
 				stageBuild.mxPos = new FlxPoint(dadOpponent.x, dadOpponent.y);
 				stageBuild.mxDefPos = new FlxPoint(dadOpponent.x, dadOpponent.y);
 				stageBuild.mxTarget = new FlxPoint(dadOpponent.x + (64 * 6), dadOpponent.y - (40 * 6));
@@ -2568,6 +2569,7 @@ class PlayState extends MusicBeatState
 			
 			if (curStep == 1255)
 			{
+				trace("Step 1255 reached - showing popup cutscene");
 				stageBuild.backgroundsArray['black'].visible = true;
 				stageBuild.backgroundsArray['popup'].visible = true;
 				displayRating('sick', 'sick');
@@ -2575,6 +2577,7 @@ class PlayState extends MusicBeatState
 			
 			if (curStep == 1263)
 			{
+				trace("Step 1263 - showing 'doesnt'");
 				stageBuild.backgroundsArray['popup'].animation.play('doesnt', true);
 			}
 			
@@ -2595,13 +2598,14 @@ class PlayState extends MusicBeatState
 			
 			if (curStep == 1276)
 			{
+				trace("Step 1276 - hiding popup cutscene");
 				stageBuild.backgroundsArray['black'].visible = false;
 				stageBuild.backgroundsArray['popup'].visible = false;
 			}
 			
 			if (curStep == 1400)
 			{
-				dadOpponent.setCharacter(stageBuild.mxDefPos.x, stageBuild.mxDefPos.y, "mx-angry");
+				dadOpponent.setCharacter(stageBuild.mxDefPos.x + 60, stageBuild.mxDefPos.y + 330, "mx-angry");
 			}
 			
 			if (curStep == 1407)
@@ -2635,8 +2639,9 @@ class PlayState extends MusicBeatState
 			if (curStep == 2034)
 			{
 				camGame.visible = false;
-				dadOpponent.setCharacter(stageBuild.mxDefPos.x, stageBuild.mxDefPos.y, "mx-angry");
+				dadOpponent.setCharacter(stageBuild.mxDefPos.x + 60, stageBuild.mxDefPos.y + 730, "mx-angry");
 				stageBuild.madPrefix = '-mad';
+				// stageBuild.mxPos.y = stageBuild.mxPos.y - 10*20060;
 				stageBuild.legs.animation.play('idle-mad');
 				
 				boyfriend.setPosition(stageBuild.bfDefPos.x, stageBuild.bfDefPos.y);

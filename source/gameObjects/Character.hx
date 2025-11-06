@@ -1052,9 +1052,9 @@ class Character extends FNFSprite
 				animation.addByPrefix('laugh1', 'laugh1', 30, false);
 				animation.addByPrefix('laugh2', 'laugh2', 30, false);
 				animation.addByPrefix('laugh3', 'laugh3', 30, false);
-				addOffset('laugh1', 10 * 6, 15 * 6);
-				addOffset('laugh2', 10 * 6, 15 * 6);
-				addOffset('laugh3', 10 * 6, 15 * 6);
+				// addOffset('laugh1', 10 * 6, 15 * 6);
+				// addOffset('laugh2', 10 * 6, 15 * 6);
+				// addOffset('laugh3', 10 * 6, 15 * 6);
 
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
